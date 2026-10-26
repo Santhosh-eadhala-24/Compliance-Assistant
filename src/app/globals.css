@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --surface-2: #eceff2;
+  --ink: #0f1923;
+  --muted: #5c6877;
+  --line: #dce1e7;
+  --accent: #0b6b73;
+  --accent-hover: #095a61;
+  --accent-ink: #ffffff;
+  --accent-soft: #ddeeef;
+  --cite: #4553c7;
+  --cite-soft: #e8eafb;
+  --danger: #b42318;
+  --mark: #ffe58a;
+  --mark-active: #ffb020;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0b1117;
+  --surface: #121a22;
+  --surface-2: #19232d;
+  --ink: #e8edf2;
+  --muted: #93a0af;
+  --line: #243140;
+  --accent: #3fbdb4;
+  --accent-hover: #5acfc6;
+  --accent-ink: #06201f;
+  --accent-soft: #12302f;
+  --cite: #9aa5ff;
+  --cite-soft: #222a5c;
+  --danger: #f97066;
+  --mark: #5c4a00;
+  --mark-active: #a66a00;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-cite: var(--cite);
+  --color-cite-soft: var(--cite-soft);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::highlight(search) {
+  background-color: var(--mark);
+  color: inherit;
+}
+
+::highlight(search-active) {
+  background-color: var(--mark-active);
+  color: inherit;
+}
+
+.streaming > :last-child::after {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 1rem;
+  margin-left: 2px;
+  vertical-align: -2px;
+  border-radius: 1px;
+  background: var(--accent);
+  animation: caret 1s steps(2, start) infinite;
+}
+
+@keyframes caret {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.rise {
+  animation: rise 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
