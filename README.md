@@ -2,7 +2,7 @@
 
 Real-time compliance chat with a simulated AI assistant. Built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
-Live demo: _add your Vercel link here_
+Live demo: https://compliance-assistant-five.vercel.app/
 
 ## Run it
 
