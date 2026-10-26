@@ -239,7 +239,7 @@ export function Sidebar({ threads, activeId, className, onNavigate, onToggle }: 
   const groups = now === 0 ? [] : groupThreads(threads, now);
 
   return (
-    <aside className={cn("w-[var(--sidebar-w,18rem)] shrink-0 flex-col border-r border-line bg-surface", className)} aria-label="Conversations">
+    <aside className={cn("w-(--sidebar-w,18rem) shrink-0 flex-col border-r border-line bg-surface", className)} aria-label="Conversations">
       <div className="flex items-center gap-2 px-4 pb-2 pt-4">
         <div className="flex size-7 items-center justify-center rounded-lg bg-accent text-accent-ink">
           <ShieldCheck size={16} aria-hidden />

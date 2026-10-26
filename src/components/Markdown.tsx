@@ -85,7 +85,7 @@ const components: Components = {
   ),
   table: ({ children }) => (
     <div className="my-3 overflow-x-auto rounded-xl border border-line">
-      <table className="w-full min-w-[28rem] border-collapse text-left text-sm">{children}</table>
+      <table className="w-full min-w-[112rem] border-collapse text-left text-sm">{children}</table>
     </div>
   ),
   thead: ({ children }) => <thead className="bg-surface-2 text-xs text-muted">{children}</thead>,
